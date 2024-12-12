@@ -13,11 +13,15 @@ public class AlphabetManager : MonoBehaviour
     public Transform aslPlaceholder;
     public Transform[] pokeVisualPlaceholders;
 
-    // Answer tiles
-    public GameObject[] answerTiles; // Assign tiles corresponding to pokeVisualPlaceholders in the Inspector
-
     // Timer cubes
     public GameObject[] timerCubes; // Assign Cube 1 to Cube 10 in the Inspector
+
+    // Prefabs for feedback
+    public GameObject correctPrefab; // Assign the "Correct" prefab in the Inspector
+    public GameObject wrongPrefab;   // Assign the "Wrong" prefab in the Inspector
+
+    // Placeholders for feedback prefabs
+    public Transform[] feedbackPlaceholders; // Assign three placeholders for spawning feedback prefabs
 
     // Treasure and Life placeholders
     public Transform treasurePlaceholder; // Assign a placeholder for treasure spawning
@@ -26,11 +30,6 @@ public class AlphabetManager : MonoBehaviour
     // Prefabs
     public GameObject treasurePrefab; // Treasure prefab to spawn
     public GameObject lifeSpherePrefab; // Life sphere prefab to spawn
-
-    // Tile Colors (configurable in the Inspector)
-    public Color correctColor = Color.green; // Color for correct answers
-    public Color wrongColor = Color.red;    // Color for wrong answers
-    public Color defaultColor = Color.white; // Default reset color for tiles
 
     // Timer settings
     public float initialTimeInterval = 1.5f;
@@ -58,6 +57,7 @@ public class AlphabetManager : MonoBehaviour
     private bool isPaused = false; // Game pause state
     private bool isGameStopped = false; // Stop button state
     private List<GameObject> lifeSpheres = new List<GameObject>(); // Active life spheres
+    private List<GameObject> activeFeedbackPrefabs = new List<GameObject>(); // Track spawned feedback prefabs
 
     void Start()
     {
@@ -88,10 +88,7 @@ public class AlphabetManager : MonoBehaviour
             StopCoroutine(timerCoroutine);
         }
 
-        // Reset tile colors
-        ResetTileColors();
-
-        // Clean up previous objects
+        // Clean up previous objects and feedback prefabs
         if (currentASLAlphabet != null)
             Destroy(currentASLAlphabet);
 
@@ -100,6 +97,12 @@ public class AlphabetManager : MonoBehaviour
             if (placeholder.childCount > 0)
                 Destroy(placeholder.GetChild(0).gameObject);
         }
+
+        foreach (var feedback in activeFeedbackPrefabs)
+        {
+            Destroy(feedback);
+        }
+        activeFeedbackPrefabs.Clear();
 
         foreach (var cube in timerCubes)
         {
@@ -170,14 +173,11 @@ public class AlphabetManager : MonoBehaviour
         // Find the index of the selected poke visual
         int selectedIndex = System.Array.IndexOf(pokeVisualPlaceholders, selectedPokeVisual.transform);
 
-        // Validate index and associated tile
-        if (selectedIndex < 0 || selectedIndex >= answerTiles.Length)
+        if (selectedIndex < 0 || selectedIndex >= pokeVisualPlaceholders.Length)
         {
-            Debug.LogError("Invalid tile index for the selected poke visual.");
+            Debug.LogError("Invalid placeholder index for the selected poke visual.");
             return;
         }
-
-        GameObject selectedTile = answerTiles[selectedIndex];
 
         // Find the child prefab under the selected Poke Visual
         Transform prefabChild = selectedPokeVisual.transform.GetChild(0); // Get the first child (dynamically spawned prefab)
@@ -194,14 +194,18 @@ public class AlphabetManager : MonoBehaviour
         Debug.Log($"Selected Alphabet: {selectedName}");
         Debug.Log($"Correct Alphabet: {correctName}");
 
+        GameObject feedbackPrefab;
+        Transform feedbackPlaceholder;
+
         if (selectedName == correctName)
         {
             Debug.Log("Correct!");
             score++;
             wrongAnswerCount = 0;
 
-            // Set the tile to the correct color
-            SetTileColor(selectedTile, correctColor);
+            // Spawn the correct prefab at the placeholder's transform
+            feedbackPrefab = correctPrefab;
+            feedbackPlaceholder = feedbackPlaceholders[selectedIndex];
 
             if (IsMilestone(score))
             {
@@ -214,8 +218,9 @@ public class AlphabetManager : MonoBehaviour
             score--;
             wrongAnswerCount++;
 
-            // Set the tile to the wrong color
-            SetTileColor(selectedTile, wrongColor);
+            // Spawn the wrong prefab at the placeholder's transform
+            feedbackPrefab = wrongPrefab;
+            feedbackPlaceholder = feedbackPlaceholders[selectedIndex];
 
             // Check if player loses a life
             if (wrongAnswerCount >= 3 || score < 0)
@@ -225,27 +230,19 @@ public class AlphabetManager : MonoBehaviour
             }
         }
 
+        // Instantiate the feedback prefab at the placeholder's transform
+        GameObject spawnedFeedback = Instantiate(
+            feedbackPrefab,
+            feedbackPlaceholder.position,
+            feedbackPlaceholder.rotation,
+            feedbackPlaceholder
+        );
+        activeFeedbackPrefabs.Add(spawnedFeedback);
+
         UpdateScoreText();
-        SpawnAlphabets();
-    }
 
-    public void SetTileColor(GameObject tile, Color color)
-    {
-        if (tile.TryGetComponent<Renderer>(out Renderer renderer))
-        {
-            renderer.material.color = color;
-        }
-    }
-
-    private void ResetTileColors()
-    {
-        foreach (var tile in answerTiles)
-        {
-            if (tile.TryGetComponent<Renderer>(out Renderer renderer))
-            {
-                renderer.material.color = defaultColor;
-            }
-        }
+        // Delay spawning the next question until feedback is cleared
+        StartCoroutine(DelayNextQuestion());
     }
 
     public void ToggleGamePause()
@@ -283,28 +280,17 @@ public class AlphabetManager : MonoBehaviour
         }
     }
 
-    private IEnumerator DisplayTreasure()
+    private IEnumerator DelayNextQuestion()
     {
-        isPaused = true; // Pause the game during treasure display
+        yield return new WaitForSeconds(0.3f); // Adjust delay as needed
 
-        // Remove ASL and English alphabets
-        if (currentASLAlphabet != null) Destroy(currentASLAlphabet);
-        foreach (var placeholder in pokeVisualPlaceholders)
+        // Clear feedback prefabs before spawning the next question
+        foreach (var feedback in activeFeedbackPrefabs)
         {
-            if (placeholder.childCount > 0)
-                Destroy(placeholder.GetChild(0).gameObject);
+            Destroy(feedback);
         }
+        activeFeedbackPrefabs.Clear();
 
-        // Spawn the treasure at the placeholder
-        GameObject treasure = Instantiate(treasurePrefab, treasurePlaceholder.position, treasurePlaceholder.rotation);
-        Debug.Log("Treasure spawned!");
-
-        // Wait for the specified treasure display time
-        yield return new WaitForSeconds(treasureDisplayTime);
-
-        // Remove the treasure and resume the game
-        Destroy(treasure);
-        isPaused = false;
         SpawnAlphabets();
     }
 
@@ -370,5 +356,30 @@ public class AlphabetManager : MonoBehaviour
             if (score == milestone) return true;
         }
         return false;
+    }
+
+    private IEnumerator DisplayTreasure()
+    {
+        isPaused = true; // Pause the game during treasure display
+
+        // Remove ASL and English alphabets
+        if (currentASLAlphabet != null) Destroy(currentASLAlphabet);
+        foreach (var placeholder in pokeVisualPlaceholders)
+        {
+            if (placeholder.childCount > 0)
+                Destroy(placeholder.GetChild(0).gameObject);
+        }
+
+        // Spawn the treasure at the placeholder
+        GameObject treasure = Instantiate(treasurePrefab, treasurePlaceholder.position, treasurePlaceholder.rotation);
+        Debug.Log("Treasure spawned!");
+
+        // Wait for the specified treasure display time
+        yield return new WaitForSeconds(treasureDisplayTime);
+
+        // Remove the treasure and resume the game
+        Destroy(treasure);
+        isPaused = false;
+        SpawnAlphabets();
     }
 }
