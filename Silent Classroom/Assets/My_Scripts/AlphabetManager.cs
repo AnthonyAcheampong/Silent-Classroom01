@@ -5,71 +5,61 @@ using System.Collections.Generic;
 
 public class AlphabetManager : MonoBehaviour
 {
-    // Prefabs for ASL and English alphabets
     public GameObject[] aslPrefabs;
     public GameObject[] englishPrefabs;
-
-    // Placeholders for ASL and English alphabets
     public Transform aslPlaceholder;
     public Transform[] pokeVisualPlaceholders;
+    public GameObject[] timerCubes;
+    public GameObject correctPrefab;
+    public GameObject wrongPrefab;
+    public Transform[] feedbackPlaceholders;
+    public Transform treasurePlaceholder;
+    public Transform[] lifePlaceholders;
+    public GameObject[] treasurePrefabs; // Assign Treasure1 to Treasure5 in the Inspector
+    public GameObject lifeSpherePrefab;
+    public Transform pauseAnimationPlaceholder; // Placeholder for pause animation
+    public GameObject pauseAnimationPrefab; // FBX animation prefab for pause
+    public Transform gameOverPlaceholder; // Placeholder for game over animation
+    public GameObject gameOverPrefab; // FBX animation prefab for game over
 
-    // Timer cubes
-    public GameObject[] timerCubes; // Assign Cube 1 to Cube 10 in the Inspector
+    public GameObject[] countdownPrefabs; // Prefabs for countdown (1, 2, 3)
+    public Transform countdownPlaceholder; // Placeholder for countdown prefabs
 
-    // Prefabs for feedback
-    public GameObject correctPrefab; // Assign the "Correct" prefab in the Inspector
-    public GameObject wrongPrefab;   // Assign the "Wrong" prefab in the Inspector
-
-    // Placeholders for feedback prefabs
-    public Transform[] feedbackPlaceholders; // Assign three placeholders for spawning feedback prefabs
-
-    // Treasure and Life placeholders
-    public Transform treasurePlaceholder; // Assign a placeholder for treasure spawning
-    public Transform[] lifePlaceholders; // Assign placeholders for each life sphere
-
-    // Prefabs
-    public GameObject treasurePrefab; // Treasure prefab to spawn
-    public GameObject lifeSpherePrefab; // Life sphere prefab to spawn
-
-    // Timer settings
     public float initialTimeInterval = 1.5f;
     public float minTimeInterval = 0.5f;
     public float speedIncrement = 0.1f;
     private float timeInterval;
+    public float treasureDisplayTime = 3f;
+    public TextMeshProUGUI scoreText;
 
-    // Treasure display time
-    public float treasureDisplayTime = 3f; // Time treasure remains visible (set in Inspector)
-
-    // UI Elements
-    public TextMeshProUGUI scoreText; // Assign the score text UI in the Inspector
-
-    // Score and life tracking
     private int score = 0;
     private int wrongAnswerCount = 0;
+    private int deductionsCount = 0; // Tracks total deductions for timer and wrong answers
     private int livesRemaining = 3;
+    private HashSet<int> milestonesAchieved = new HashSet<int>(); // Track milestones achieved
 
     private GameObject currentASLAlphabet;
     private GameObject correctEnglishAlphabet;
     private int correctIndex;
 
-    private bool answerSelected = false; // Prevent multiple selections
+    private bool answerSelected = false;
     private Coroutine timerCoroutine;
-    private bool isPaused = false; // Game pause state
-    private bool isGameStopped = false; // Stop button state
-    private List<GameObject> lifeSpheres = new List<GameObject>(); // Active life spheres
-    private List<GameObject> activeFeedbackPrefabs = new List<GameObject>(); // Track spawned feedback prefabs
+    private bool isPaused = false;
+    private bool isGameStopped = false;
+    private GameObject spawnedPausePrefab; // Track the spawned pause prefab
+    private List<GameObject> lifeSpheres = new List<GameObject>();
+    private List<GameObject> activeFeedbackPrefabs = new List<GameObject>();
 
     void Start()
     {
-        timeInterval = initialTimeInterval; // Set the initial timer interval
-        SpawnLifeSpheres(); // Spawn life spheres at the start of the game
+        timeInterval = initialTimeInterval;
+        SpawnLifeSpheres();
         UpdateScoreText();
-        SpawnAlphabets();
+        StartCoroutine(StartCountdown());
     }
 
     private void SpawnLifeSpheres()
     {
-        // Spawn life spheres at their designated placeholders
         foreach (var placeholder in lifePlaceholders)
         {
             GameObject lifeSphere = Instantiate(lifeSpherePrefab, placeholder.position, placeholder.rotation);
@@ -77,18 +67,29 @@ public class AlphabetManager : MonoBehaviour
         }
     }
 
+    private IEnumerator StartCountdown()
+    {
+        foreach (GameObject countdownPrefab in countdownPrefabs)
+        {
+            GameObject countdownInstance = Instantiate(countdownPrefab, countdownPlaceholder.position, countdownPlaceholder.rotation, countdownPlaceholder);
+            yield return new WaitForSeconds(2f); // Wait for 1 second between countdown numbers
+            Destroy(countdownInstance);
+        }
+
+        SpawnAlphabets(); // Start the game after the countdown
+    }
+
     public void SpawnAlphabets()
     {
-        if (isPaused || isGameStopped) return; // Do not spawn if the game is paused or stopped
+        if (isPaused || isGameStopped) return;
 
-        answerSelected = false; // Reset the selection lock for the new round
+        answerSelected = false;
 
         if (timerCoroutine != null)
         {
             StopCoroutine(timerCoroutine);
         }
 
-        // Clean up previous objects and feedback prefabs
         if (currentASLAlphabet != null)
             Destroy(currentASLAlphabet);
 
@@ -109,23 +110,14 @@ public class AlphabetManager : MonoBehaviour
             cube.SetActive(false);
         }
 
-        // Spawn the ASL alphabet
         int aslIndex = Random.Range(0, aslPrefabs.Length);
-        currentASLAlphabet = Instantiate(
-            aslPrefabs[aslIndex],
-            aslPlaceholder.position,
-            aslPlaceholder.rotation,
-            aslPlaceholder
-        );
+        currentASLAlphabet = Instantiate(aslPrefabs[aslIndex], aslPlaceholder.position, aslPlaceholder.rotation, aslPlaceholder);
 
-        // Determine the correct English alphabet
         correctEnglishAlphabet = englishPrefabs[aslIndex];
         correctIndex = Random.Range(0, pokeVisualPlaceholders.Length);
 
-        // Track used indices to prevent duplicate alphabets
         List<int> usedIndices = new List<int> { aslIndex };
 
-        // Spawn English alphabets
         for (int i = 0; i < pokeVisualPlaceholders.Length; i++)
         {
             GameObject alphabetToSpawn;
@@ -146,31 +138,23 @@ public class AlphabetManager : MonoBehaviour
                 alphabetToSpawn = englishPrefabs[randomIndex];
             }
 
-            Instantiate(
-                alphabetToSpawn,
-                pokeVisualPlaceholders[i].position,
-                pokeVisualPlaceholders[i].rotation,
-                pokeVisualPlaceholders[i]
-            );
+            Instantiate(alphabetToSpawn, pokeVisualPlaceholders[i].position, pokeVisualPlaceholders[i].rotation, pokeVisualPlaceholders[i]);
         }
 
-        // Start the timer
         timerCoroutine = StartCoroutine(StartTimer());
     }
 
     public void CheckAnswer(GameObject selectedPokeVisual)
     {
-        if (answerSelected || isPaused || isGameStopped) return; // Prevent multiple selections
+        if (answerSelected || isPaused || isGameStopped) return;
 
-        answerSelected = true; // Lock input after one selection
+        answerSelected = true;
 
-        // Stop the timer
         if (timerCoroutine != null)
         {
             StopCoroutine(timerCoroutine);
         }
 
-        // Find the index of the selected poke visual
         int selectedIndex = System.Array.IndexOf(pokeVisualPlaceholders, selectedPokeVisual.transform);
 
         if (selectedIndex < 0 || selectedIndex >= pokeVisualPlaceholders.Length)
@@ -179,15 +163,13 @@ public class AlphabetManager : MonoBehaviour
             return;
         }
 
-        // Find the child prefab under the selected Poke Visual
-        Transform prefabChild = selectedPokeVisual.transform.GetChild(0); // Get the first child (dynamically spawned prefab)
+        Transform prefabChild = selectedPokeVisual.transform.GetChild(0);
         if (prefabChild == null)
         {
             Debug.LogError("No prefab child found under the selected Poke Visual!");
             return;
         }
 
-        // Clean up prefab names for comparison
         string selectedName = prefabChild.name.Replace("(Clone)", "").Trim();
         string correctName = correctEnglishAlphabet.name.Replace("(Clone)", "").Trim();
 
@@ -202,8 +184,8 @@ public class AlphabetManager : MonoBehaviour
             Debug.Log("Correct!");
             score++;
             wrongAnswerCount = 0;
+            deductionsCount = 0; // Reset deductions if a correct answer is selected
 
-            // Spawn the correct prefab at the placeholder's transform
             feedbackPrefab = correctPrefab;
             feedbackPlaceholder = feedbackPlaceholders[selectedIndex];
 
@@ -215,83 +197,39 @@ public class AlphabetManager : MonoBehaviour
         else
         {
             Debug.Log("Wrong!");
-            score--;
-            wrongAnswerCount++;
 
-            // Spawn the wrong prefab at the placeholder's transform
+            if (score > 0)
+            {
+                score--;
+            }
+            else
+            {
+                LoseLife();
+            }
+
+            deductionsCount++;
+
             feedbackPrefab = wrongPrefab;
             feedbackPlaceholder = feedbackPlaceholders[selectedIndex];
 
-            // Check if player loses a life
-            if (wrongAnswerCount >= 3 || score < 0)
+            if (deductionsCount >= 3)
             {
                 LoseLife();
-                wrongAnswerCount = 0; // Reset wrong answer count after losing a life
+                deductionsCount = 0; // Reset deductions after losing a life
             }
         }
 
-        // Instantiate the feedback prefab at the placeholder's transform
-        GameObject spawnedFeedback = Instantiate(
-            feedbackPrefab,
-            feedbackPlaceholder.position,
-            feedbackPlaceholder.rotation,
-            feedbackPlaceholder
-        );
+        GameObject spawnedFeedback = Instantiate(feedbackPrefab, feedbackPlaceholder.position, feedbackPlaceholder.rotation, feedbackPlaceholder);
         activeFeedbackPrefabs.Add(spawnedFeedback);
 
         UpdateScoreText();
 
-        // Delay spawning the next question until feedback is cleared
         StartCoroutine(DelayNextQuestion());
     }
 
-    public void ToggleGamePause()
+    private void UpdateScoreText()
     {
-        isGameStopped = !isGameStopped; // Toggle the stop state
-
-        if (isGameStopped)
-        {
-            Debug.Log("Game Paused!");
-
-            // Stop the timer coroutine
-            if (timerCoroutine != null)
-            {
-                StopCoroutine(timerCoroutine);
-            }
-
-            // Deactivate ASL and English alphabets
-            if (currentASLAlphabet != null)
-                currentASLAlphabet.SetActive(false);
-
-            foreach (var placeholder in pokeVisualPlaceholders)
-            {
-                if (placeholder.childCount > 0)
-                {
-                    placeholder.GetChild(0).gameObject.SetActive(false);
-                }
-            }
-        }
-        else
-        {
-            Debug.Log("Game Resumed!");
-
-            // Reactivate ASL and English alphabets and spawn new questions
-            SpawnAlphabets();
-        }
-    }
-
-    private IEnumerator DelayNextQuestion()
-    {
-        yield return new WaitForSeconds(0.3f); // Adjust delay as needed
-
-        // Clear feedback prefabs before spawning the next question
-        foreach (var feedback in activeFeedbackPrefabs)
-        {
-            Destroy(feedback);
-        }
-        activeFeedbackPrefabs.Clear();
-
-        SpawnAlphabets();
+        scoreText.text = score.ToString();
     }
 
     private IEnumerator StartTimer()
@@ -305,25 +243,71 @@ public class AlphabetManager : MonoBehaviour
         }
 
         Debug.Log("Time's up!");
-        score--;
-        wrongAnswerCount++;
 
-        if (wrongAnswerCount >= 3)
+        if (score > 0)
         {
-            LoseLife();
-            wrongAnswerCount = 0; // Reset wrong answer count after losing a life
+            score--;
         }
-        else if (score < 0)
+        else
         {
             LoseLife();
-            score = 0; // Reset score to prevent multiple deductions
+        }
+
+        deductionsCount++;
+
+        if (deductionsCount >= 3)
+        {
+            LoseLife();
+            deductionsCount = 0; // Reset deductions after losing a life
         }
 
         UpdateScoreText();
         SpawnAlphabets();
 
-        // Gradually increase timer speed
         timeInterval = Mathf.Max(minTimeInterval, timeInterval - speedIncrement);
+    }
+
+    public void ToggleGamePause()
+    {
+        isGameStopped = !isGameStopped;
+
+        if (isGameStopped)
+        {
+            Debug.Log("Game Paused!");
+
+            if (timerCoroutine != null)
+            {
+                StopCoroutine(timerCoroutine);
+            }
+
+            if (currentASLAlphabet != null)
+                currentASLAlphabet.SetActive(false);
+
+            foreach (var placeholder in pokeVisualPlaceholders)
+            {
+                if (placeholder.childCount > 0)
+                {
+                    placeholder.GetChild(0).gameObject.SetActive(false);
+                }
+            }
+
+            if (spawnedPausePrefab == null && pauseAnimationPrefab != null && pauseAnimationPlaceholder != null)
+            {
+                spawnedPausePrefab = Instantiate(pauseAnimationPrefab, pauseAnimationPlaceholder.position, pauseAnimationPlaceholder.rotation, pauseAnimationPlaceholder);
+            }
+        }
+        else
+        {
+            Debug.Log("Game Resumed!");
+
+            if (spawnedPausePrefab != null)
+            {
+                Destroy(spawnedPausePrefab);
+                spawnedPausePrefab = null;
+            }
+
+            SpawnAlphabets();
+        }
     }
 
     private void LoseLife()
@@ -332,37 +316,68 @@ public class AlphabetManager : MonoBehaviour
         {
             livesRemaining--;
 
-            // Deactivate the last remaining life sphere
             lifeSpheres[livesRemaining].SetActive(false);
             Debug.Log($"Life {livesRemaining + 1} lost!");
 
             if (livesRemaining == 0)
             {
                 Debug.Log("Game Over!");
+                isGameStopped = true;
+
+                // Stop all activity
+                if (timerCoroutine != null)
+                {
+                    StopCoroutine(timerCoroutine);
+                }
+
+                if (currentASLAlphabet != null)
+                {
+                    Destroy(currentASLAlphabet);
+                }
+
+                foreach (var placeholder in pokeVisualPlaceholders)
+                {
+                    if (placeholder.childCount > 0)
+                    {
+                        Destroy(placeholder.GetChild(0).gameObject);
+                    }
+                }
+
+                foreach (var feedback in activeFeedbackPrefabs)
+                {
+                    Destroy(feedback);
+                }
+                activeFeedbackPrefabs.Clear();
+
+                // Spawn the Game Over prefab
+                if (gameOverPrefab != null && gameOverPlaceholder != null)
+                {
+                    Instantiate(gameOverPrefab, gameOverPlaceholder.position, gameOverPlaceholder.rotation, gameOverPlaceholder);
+                }
             }
         }
     }
 
-    private void UpdateScoreText()
-    {
-        scoreText.text = score.ToString(); // Only display the numeric score
-    }
-
     private bool IsMilestone(int score)
     {
-        int[] milestones = { 10, 20, 40, 60, 80, 100 };
-        foreach (int milestone in milestones)
+        if (milestonesAchieved.Contains(score)) return false;
+
+        bool isMilestone = score % 10 == 0 && score / 10 <= treasurePrefabs.Length;
+
+        if (isMilestone)
         {
-            if (score == milestone) return true;
+            milestonesAchieved.Add(score);
         }
-        return false;
+
+        return isMilestone;
     }
+
+
 
     private IEnumerator DisplayTreasure()
     {
-        isPaused = true; // Pause the game during treasure display
+        isPaused = true;
 
-        // Remove ASL and English alphabets
         if (currentASLAlphabet != null) Destroy(currentASLAlphabet);
         foreach (var placeholder in pokeVisualPlaceholders)
         {
@@ -370,16 +385,31 @@ public class AlphabetManager : MonoBehaviour
                 Destroy(placeholder.GetChild(0).gameObject);
         }
 
-        // Spawn the treasure at the placeholder
-        GameObject treasure = Instantiate(treasurePrefab, treasurePlaceholder.position, treasurePlaceholder.rotation);
+        int treasureIndex = Mathf.Min(score / 10 - 1, treasurePrefabs.Length - 1);
+        GameObject treasure = Instantiate(treasurePrefabs[treasureIndex], treasurePlaceholder.position, treasurePlaceholder.rotation);
         Debug.Log("Treasure spawned!");
 
-        // Wait for the specified treasure display time
         yield return new WaitForSeconds(treasureDisplayTime);
 
-        // Remove the treasure and resume the game
         Destroy(treasure);
         isPaused = false;
+        SpawnAlphabets();
+    }
+
+
+
+
+
+    private IEnumerator DelayNextQuestion()
+    {
+        yield return new WaitForSeconds(0.3f);
+
+        foreach (var feedback in activeFeedbackPrefabs)
+        {
+            Destroy(feedback);
+        }
+        activeFeedbackPrefabs.Clear();
+
         SpawnAlphabets();
     }
 }
