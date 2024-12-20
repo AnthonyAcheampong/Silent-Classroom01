@@ -1,4 +1,4 @@
-
+/*
 
 using UnityEngine;
 using TMPro;
@@ -388,16 +388,7 @@ public class AlphabetManager : MonoBehaviour
         }
 
         int treasureIndex = Mathf.Min(score / 10 - 1, treasurePrefabs.Length - 1);
-
-        // Instantiate the treasure prefab
-        GameObject treasure = Instantiate(treasurePrefabs[treasureIndex]);
-        treasure.transform.position = treasurePlaceholder.position;
-        treasure.transform.rotation = treasurePlaceholder.rotation;
-        treasure.transform.localScale = treasurePlaceholder.localScale;
-
-        // Adjust Y rotation to 90 degrees
-        treasure.transform.Rotate(0, 90, 0);
-
+        GameObject treasure = Instantiate(treasurePrefabs[treasureIndex], treasurePlaceholder.position, treasurePlaceholder.rotation);
         Debug.Log("Treasure spawned!");
 
         yield return new WaitForSeconds(treasureDisplayTime);
@@ -406,8 +397,6 @@ public class AlphabetManager : MonoBehaviour
         isPaused = false;
         SpawnAlphabets();
     }
-
-
 
 
 
@@ -428,3 +417,4 @@ public class AlphabetManager : MonoBehaviour
 }
 
 
+*/

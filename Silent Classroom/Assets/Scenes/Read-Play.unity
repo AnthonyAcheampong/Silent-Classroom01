@@ -2486,8 +2486,8 @@ Transform:
   m_GameObject: {fileID: 263803787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2517, y: -0.224, z: 1.1961}
-  m_LocalScale: {x: 1.11, y: 1.11, z: 1.0787758}
+  m_LocalPosition: {x: -0.354, y: 1.765, z: 1.151}
+  m_LocalScale: {x: 1.5199224, y: 2.04, z: 2.04}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -17243,11 +17243,11 @@ MonoBehaviour:
   - {fileID: 1875252508}
   - {fileID: 1577113717}
   treasurePrefabs:
-  - {fileID: 4944948167254402928, guid: ec2a0ecf070a6cc4c98b565280d479a6, type: 3}
-  - {fileID: 4944948167254402928, guid: 45a90836b71955d418fc24f521932a65, type: 3}
-  - {fileID: 4944948167254402928, guid: ea7b5b5274280014cb56bee816f82019, type: 3}
-  - {fileID: 4944948167254402928, guid: ca0c7beb15b99a848b1788b8e52b3990, type: 3}
-  - {fileID: 4944948167254402928, guid: 9de6417bba172df45b7c757543d42487, type: 3}
+  - {fileID: 916534590923793294, guid: dd0c5957e4b205044aa369c062cf1492, type: 3}
+  - {fileID: 446685447902423016, guid: a06a9009e51cd174397f28022689eeb1, type: 3}
+  - {fileID: 4562192975362096433, guid: 5f770f44ca5d9bf4088a491c40e54241, type: 3}
+  - {fileID: 8477286737034957436, guid: cbf8d11d656b8fb4d8c709a0623b45d9, type: 3}
+  - {fileID: 6739139476152265038, guid: 7a0425a5be6ee5d40806dc348dab22b6, type: 3}
   lifeSpherePrefab: {fileID: 7201620159480482794, guid: 6cafdc840e575e24a829d4ab834c2846, type: 3}
   pauseAnimationPlaceholder: {fileID: 1487837433}
   pauseAnimationPrefab: {fileID: 5851433593205484096, guid: 38cc9d4f92218d64c9f747c0c6028b31, type: 3}
