@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9601702
 Transform:
   m_ObjectHideFlags: 0
@@ -166,33 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 8f48ac03ef56c76449284b71a25c1ded, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL M
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 9601703}
-  m_Highlight: {fileID: 0}
 --- !u!1 &14899373
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +206,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -323,7 +296,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -374,6 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25043997}
   - component: {fileID: 25043998}
+  - component: {fileID: 25043999}
   m_Layer: 0
   m_Name: Right E
   m_TagString: Untagged
@@ -408,33 +382,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &25043999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25043996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1171159857}
   m_HandShapeOrPose: {fileID: 11400000, guid: 0d28824af16fcca4ca84724e8dfbce5b, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
+      m_Calls: []
+  m_GestureEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MinimumHoldTime: 0.2
+  m_GestureDetectionInterval: 0.1
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Right ASL E
+          m_StringArgument: E
           m_BoolArgument: 0
         m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 25043998}
-  m_Highlight: {fileID: 0}
 --- !u!1 &29628668
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &29628669
 Transform:
   m_ObjectHideFlags: 0
@@ -479,33 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4b4d21c1b83761441955ad8d28e2ff4e, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL S
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 29628670}
-  m_Highlight: {fileID: 0}
 --- !u!1 &60835424
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &60835425
 Transform:
   m_ObjectHideFlags: 0
@@ -550,33 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 5686793a8b39dfe4e8dc0772282d25b4, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL L
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 60835426}
-  m_Highlight: {fileID: 0}
 --- !u!1 &65022684
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &65022685
 Transform:
   m_ObjectHideFlags: 0
@@ -621,33 +556,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 6116f64fd7d671046a849910cb491872, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL X
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 65022686}
-  m_Highlight: {fileID: 0}
 --- !u!1 &73386798
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &73386799
 Transform:
   m_ObjectHideFlags: 0
@@ -692,33 +600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 7fdd2afa44a436446bdb55fa7872a77d, type: 2}
-  m_TargetTransform: {fileID: 0}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right Hand Thumbs Up
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 73386800}
-  m_Highlight: {fileID: 0}
 --- !u!1 &178766881
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178766882}
   - component: {fileID: 178766883}
+  - component: {fileID: 178766884}
   m_Layer: 0
   m_Name: Left E
   m_TagString: Untagged
@@ -763,23 +645,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &178766884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178766881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1718331903}
   m_HandShapeOrPose: {fileID: 11400000, guid: 0d28824af16fcca4ca84724e8dfbce5b, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Left ASL E
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_GestureEnded:
@@ -787,9 +681,12 @@ MonoBehaviour:
       m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 178766883}
+  m_StaticGestures: []
   m_Highlight: {fileID: 0}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &296098680
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &296098681
 Transform:
   m_ObjectHideFlags: 0
@@ -834,33 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 6a4117fa63ed52a42a6e817208b76b21, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL F
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 296098682}
-  m_Highlight: {fileID: 0}
 --- !u!1 &297716695
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 297716696}
   - component: {fileID: 297716697}
+  - component: {fileID: 297716698}
   m_Layer: 0
   m_Name: Right A
   m_TagString: Untagged
@@ -905,33 +776,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &297716698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297716695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1171159857}
   m_HandShapeOrPose: {fileID: 11400000, guid: 0196003e0a317294ea1347cf88c026c5, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
+      m_Calls: []
+  m_GestureEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MinimumHoldTime: 0.2
+  m_GestureDetectionInterval: 0.1
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Right ASL A
+          m_StringArgument: A
           m_BoolArgument: 0
         m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 297716697}
-  m_Highlight: {fileID: 0}
 --- !u!1 &392800920
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &392800921
 Transform:
   m_ObjectHideFlags: 0
@@ -976,33 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 5686793a8b39dfe4e8dc0772282d25b4, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL L
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 392800922}
-  m_Highlight: {fileID: 0}
 --- !u!1 &393942627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &393942628
 Transform:
   m_ObjectHideFlags: 0
@@ -1047,33 +906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 51d5b8b7c23e3634f88cc579e1d78d13, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL P
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 393942629}
-  m_Highlight: {fileID: 0}
 --- !u!1 &399000789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &399000790
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,33 +950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 9ab705c9bbef206459c0d1361c0bc944, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL I
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 399000791}
-  m_Highlight: {fileID: 0}
 --- !u!1 &421105092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &421105093
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,33 +994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 0640b7557dde89340b1f0a542698615e, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL W
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 421105094}
-  m_Highlight: {fileID: 0}
 --- !u!1 &485543680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,13 +1004,14 @@ GameObject:
   m_Component:
   - component: {fileID: 485543681}
   - component: {fileID: 485543682}
+  - component: {fileID: 485543683}
   m_Layer: 0
   m_Name: Right C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &485543681
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,33 +1039,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &485543683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485543680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1171159857}
   m_HandShapeOrPose: {fileID: 11400000, guid: 5a43cf3cd709dad4087561822ff25ffa, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
+      m_Calls: []
+  m_GestureEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MinimumHoldTime: 0.2
+  m_GestureDetectionInterval: 0.1
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Right ASL C
+          m_StringArgument: C
           m_BoolArgument: 0
         m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 485543682}
-  m_Highlight: {fileID: 0}
 --- !u!1 &600693992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &600693993
 Transform:
   m_ObjectHideFlags: 0
@@ -1331,33 +1125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4b4d21c1b83761441955ad8d28e2ff4e, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL S
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 600693994}
-  m_Highlight: {fileID: 0}
 --- !u!1 &617521519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &617521520
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,33 +1169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 24089de6f5cacc24badb42e4dc7c39f3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL V
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 617521521}
-  m_Highlight: {fileID: 0}
 --- !u!1 &617544269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &617544270
 Transform:
   m_ObjectHideFlags: 0
@@ -1473,33 +1213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 8f48ac03ef56c76449284b71a25c1ded, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL M
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 617544271}
-  m_Highlight: {fileID: 0}
 --- !u!1001 &651886740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1560,6 +1273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878849512590031469, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+      propertyPath: m_UseOptimizedControls
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1581,7 +1298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &696399335
 Transform:
   m_ObjectHideFlags: 0
@@ -1609,33 +1326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4dfce0090251ccb4bb0eccf56dbfffa7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL H
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 696399336}
-  m_Highlight: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,6 +1420,140 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &730373472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730373473}
+  - component: {fileID: 730373475}
+  - component: {fileID: 730373474}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &730373473
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730373472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 980035933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &730373474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730373472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &730373475
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730373472}
+  m_CullTransparentMesh: 1
 --- !u!1 &732982190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &732982191
 Transform:
   m_ObjectHideFlags: 0
@@ -1774,33 +1598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: a6643ca041e4b7e4580134a67fc547fd, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL K
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 732982192}
-  m_Highlight: {fileID: 0}
 --- !u!1 &733343192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &733343193
 Transform:
   m_ObjectHideFlags: 0
@@ -1845,33 +1642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4b81059e0e7b5994aa42281ced7aa4a7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL N
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 733343194}
-  m_Highlight: {fileID: 0}
 --- !u!1 &822184193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,13 +1652,14 @@ GameObject:
   m_Component:
   - component: {fileID: 822184194}
   - component: {fileID: 822184195}
+  - component: {fileID: 822184196}
   m_Layer: 0
   m_Name: Left C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &822184194
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,23 +1687,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &822184196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822184193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1718331903}
   m_HandShapeOrPose: {fileID: 11400000, guid: 5a43cf3cd709dad4087561822ff25ffa, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Left ASL C
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_GestureEnded:
@@ -1940,9 +1723,12 @@ MonoBehaviour:
       m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 822184195}
-  m_Highlight: {fileID: 0}
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &892784722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &892784723
 Transform:
   m_ObjectHideFlags: 0
@@ -1987,33 +1773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 50591dbf45c39e1408493d678f21e7a3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL G
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 892784724}
-  m_Highlight: {fileID: 0}
 --- !u!1 &975669389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +1789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &975669390
 Transform:
   m_ObjectHideFlags: 0
@@ -2058,33 +1817,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 03a43a7c19c1c1745adc73285d16e161, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL O
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 975669391}
-  m_Highlight: {fileID: 0}
+--- !u!1 &980035932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980035933}
+  - component: {fileID: 980035936}
+  - component: {fileID: 980035935}
+  - component: {fileID: 980035934}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &980035933
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980035932}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 730373473}
+  m_Father: {fileID: 1583035897}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2482.5, y: 1197}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &980035934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980035932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &980035935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980035932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &980035936
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980035932}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &980809884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,7 +1935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &980809885
 Transform:
   m_ObjectHideFlags: 0
@@ -2129,33 +1963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 50591dbf45c39e1408493d678f21e7a3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL G
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 980809886}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1054460502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,7 +1979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1054460503
 Transform:
   m_ObjectHideFlags: 0
@@ -2200,33 +2007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 03a43a7c19c1c1745adc73285d16e161, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL O
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1054460504}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1085505800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1085505801
 Transform:
   m_ObjectHideFlags: 0
@@ -2271,33 +2051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: a6643ca041e4b7e4580134a67fc547fd, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL K
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1085505802}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1171159855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1175423990
 Transform:
   m_ObjectHideFlags: 0
@@ -2427,33 +2180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 30aea7a95453e0a45a4afcb9f29cf1c7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL J
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1175423991}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1206513824
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1206513825
 Transform:
   m_ObjectHideFlags: 0
@@ -2498,33 +2224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 6a4117fa63ed52a42a6e817208b76b21, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL F
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1206513826}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1248522950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1248522951
 Transform:
   m_ObjectHideFlags: 0
@@ -2569,33 +2268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 51d5b8b7c23e3634f88cc579e1d78d13, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL P
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1248522952}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1297099326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,33 +2312,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 8b21a490579f14243ac2c65d702d0621, type: 2}
-  m_TargetTransform: {fileID: 0}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right Fist Bump
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1297099328}
-  m_Highlight: {fileID: 0}
+--- !u!1 &1299050560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1299050562}
+  - component: {fileID: 1299050561}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1299050561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299050560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089611440023d9547bb336670ceab42f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphabetPrefabs:
+  - {fileID: 3346115209590067875, guid: 2bb269a17f8340742bf1f64bf3054877, type: 3}
+  - {fileID: 372463987369867895, guid: 16d9970519e8e8441aca77eef0572460, type: 3}
+  - {fileID: 9108196999451401936, guid: 760862533f07c4941ab6ce658ffe2c25, type: 3}
+  - {fileID: 1141239444018294964, guid: 82ce39bbc24fc1147975e36fc5efd2ab, type: 3}
+  - {fileID: 96877838047567816, guid: 1a3af3a50ffcf8e4a95ff7bf4b35750e, type: 3}
+  spawnPoint: {fileID: 1855492011}
+  scoreText: {fileID: 730373474}
+--- !u!4 &1299050562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299050560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.023530025, y: 1.3769218, z: 0.7764304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362772105
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,7 +2377,7 @@ GameObject:
   - component: {fileID: 1362772107}
   - component: {fileID: 1362772106}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ColorCode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2744,7 +2441,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2779,6 +2476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376618850}
   - component: {fileID: 1376618851}
+  - component: {fileID: 1376618852}
   m_Layer: 0
   m_Name: Left A
   m_TagString: Untagged
@@ -2813,23 +2511,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1376618852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376618849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 0196003e0a317294ea1347cf88c026c5, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_HandShapeOrPose: {fileID: 0}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Left ASL A
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_GestureEnded:
@@ -2837,9 +2547,12 @@ MonoBehaviour:
       m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1376618851}
-  m_Highlight: {fileID: 0}
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1427532173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,7 +2569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1427532174
 Transform:
   m_ObjectHideFlags: 0
@@ -2884,33 +2597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 0640b7557dde89340b1f0a542698615e, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL W
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1427532175}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1458167306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,7 +2613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1458167307
 Transform:
   m_ObjectHideFlags: 0
@@ -2955,33 +2641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 24089de6f5cacc24badb42e4dc7c39f3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL V
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1458167308}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1488407111
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +2657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1488407112
 Transform:
   m_ObjectHideFlags: 0
@@ -3026,33 +2685,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4b81059e0e7b5994aa42281ced7aa4a7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL N
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1488407113}
-  m_Highlight: {fileID: 0}
+--- !u!1 &1583035896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583035897}
+  m_Layer: 0
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1583035897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583035896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.63, y: 5.4, z: 5.91}
+  m_LocalScale: {x: 0.032072775, y: 0.032072775, z: 0.032072775}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 980035933}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599939129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +2727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599939130}
   - component: {fileID: 1599939131}
+  - component: {fileID: 1599939132}
   m_Layer: 0
   m_Name: Right B
   m_TagString: Untagged
@@ -3097,33 +2762,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1599939132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599939129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1171159857}
   m_HandShapeOrPose: {fileID: 11400000, guid: f47d03686abd4ba4fb27e4fa4ceb1d4a, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
+      m_Calls: []
+  m_GestureEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MinimumHoldTime: 0.2
+  m_GestureDetectionInterval: 0.1
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Right ASL B
+          m_StringArgument: B
           m_BoolArgument: 0
         m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1599939131}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1612985953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,7 +2820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1612985954
 Transform:
   m_ObjectHideFlags: 0
@@ -3168,33 +2848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: a32686b245e841543beb2519d2421d31, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL U
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1612985955}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1613562274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +2864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1613562275
 Transform:
   m_ObjectHideFlags: 0
@@ -3239,33 +2892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 6116f64fd7d671046a849910cb491872, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL X
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1613562276}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1625382949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +2908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625382950
 Transform:
   m_ObjectHideFlags: 0
@@ -3310,33 +2936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 30aea7a95453e0a45a4afcb9f29cf1c7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL J
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1625382951}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1718331901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,11 +3021,6 @@ MonoBehaviour:
   m_TrackingChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!4 &1723148597 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7990873191187716717, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
-  m_PrefabInstance: {fileID: 651886740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810647863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,7 +3037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1810647864
 Transform:
   m_ObjectHideFlags: 0
@@ -3471,33 +3065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 74929eaa99c024049b5210e7f517fad8, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL T
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1810647865}
-  m_Highlight: {fileID: 0}
 --- !u!1 &1816930452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,7 +3081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1816930453
 Transform:
   m_ObjectHideFlags: 0
@@ -3542,33 +3109,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 4dfce0090251ccb4bb0eccf56dbfffa7, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL H
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1816930454}
-  m_Highlight: {fileID: 0}
+--- !u!1 &1855492010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1855492011}
+  m_Layer: 0
+  m_Name: EnglishAlphabet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1855492011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855492010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.023530025, y: 1.3769218, z: 2.049}
+  m_LocalScale: {x: 2.62, y: 2.62, z: 2.62}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1864931089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,6 +3183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866264569}
   - component: {fileID: 1866264570}
+  - component: {fileID: 1866264571}
   m_Layer: 0
   m_Name: Left D
   m_TagString: Untagged
@@ -3646,23 +3218,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1866264571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866264568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 574246e4a41e1d149b614098e9e5d5f3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_HandShapeOrPose: {fileID: 11400000, guid: ee6a322de65842f4e8a01e4454339094, type: 2}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Left ASL D
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_GestureEnded:
@@ -3670,9 +3254,12 @@ MonoBehaviour:
       m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1866264570}
+  m_StaticGestures: []
   m_Highlight: {fileID: 0}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1871723116
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,7 +3351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1971466318
 Transform:
   m_ObjectHideFlags: 0
@@ -3792,33 +3379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: a32686b245e841543beb2519d2421d31, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL U
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 1971466319}
-  m_Highlight: {fileID: 0}
 --- !u!1 &2061017560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3829,6 +3389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061017561}
   - component: {fileID: 2061017562}
+  - component: {fileID: 2061017563}
   m_Layer: 0
   m_Name: Left B
   m_TagString: Untagged
@@ -3863,23 +3424,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2061017563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061017560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1718331903}
   m_HandShapeOrPose: {fileID: 11400000, guid: f47d03686abd4ba4fb27e4fa4ceb1d4a, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Left ASL B
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   m_GestureEnded:
@@ -3887,9 +3460,12 @@ MonoBehaviour:
       m_Calls: []
   m_MinimumHoldTime: 0.2
   m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2061017562}
-  m_Highlight: {fileID: 0}
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2094506234
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +3482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2094506235
 Transform:
   m_ObjectHideFlags: 0
@@ -3934,33 +3510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 7fdd2afa44a436446bdb55fa7872a77d, type: 2}
-  m_TargetTransform: {fileID: 0}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left Hand Thumbs Up
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2094506236}
-  m_Highlight: {fileID: 0}
 --- !u!1 &2109120004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,33 +3554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 8b21a490579f14243ac2c65d702d0621, type: 2}
-  m_TargetTransform: {fileID: 0}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left Fist Bump
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2109120006}
-  m_Highlight: {fileID: 0}
 --- !u!1 &2115071048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4048,7 +3570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2115071049
 Transform:
   m_ObjectHideFlags: 0
@@ -4076,33 +3598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 9ab705c9bbef206459c0d1361c0bc944, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Right ASL I
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2115071050}
-  m_Highlight: {fileID: 0}
 --- !u!1 &2115508554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,6 +3608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115508555}
   - component: {fileID: 2115508556}
+  - component: {fileID: 2115508557}
   m_Layer: 0
   m_Name: Right D
   m_TagString: Untagged
@@ -4147,33 +3643,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2115508557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115508554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5487852d4b69ab848a57a73f47834a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_HandTrackingEvents: {fileID: 1171159857}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 574246e4a41e1d149b614098e9e5d5f3, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
+  m_HandShapeOrPose: {fileID: 11400000, guid: ee6a322de65842f4e8a01e4454339094, type: 2}
+  m_TargetTransform: {fileID: 0}
   m_Background: {fileID: 1871723118}
   m_GesturePerformed:
     m_PersistentCalls:
+      m_Calls: []
+  m_GestureEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  m_MinimumHoldTime: 0.2
+  m_GestureDetectionInterval: 0.1
+  m_StaticGestures: []
+  m_Highlight: {fileID: 1871723118}
+  m_RecognizedAlphabet: 
+  onGestureRecognized:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
+      - m_Target: {fileID: 1299050561}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGesturePerformed
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Right ASL D
+          m_StringArgument: D
           m_BoolArgument: 0
         m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2115508556}
-  m_Highlight: {fileID: 0}
 --- !u!1 &2129513288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,7 +3701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2129513289
 Transform:
   m_ObjectHideFlags: 0
@@ -4218,33 +3729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf93899325d5df74eb9176e097ee3d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HandTrackingEvents: {fileID: 1718331903}
-  m_HandShapeOrPose: {fileID: 11400000, guid: 74929eaa99c024049b5210e7f517fad8, type: 2}
-  m_TargetTransform: {fileID: 1723148597}
-  m_Background: {fileID: 1871723118}
-  m_GesturePerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 14899374}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Left ASL T
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_GestureEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  m_MinimumHoldTime: 0.2
-  m_GestureDetectionInterval: 0.1
-  m_StaticGestures:
-  - {fileID: 2129513290}
-  m_Highlight: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4254,3 +3738,6 @@ SceneRoots:
   - {fileID: 1864931090}
   - {fileID: 14899376}
   - {fileID: 1362772109}
+  - {fileID: 1299050562}
+  - {fileID: 1855492011}
+  - {fileID: 1583035897}

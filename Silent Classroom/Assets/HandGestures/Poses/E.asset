@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 740f51a1ac4b42088297287229057627, type: 3}
-  m_Name: A Pose
+  m_Name: E
   m_EditorClassIdentifier: 
-  m_HandShape: {fileID: 11400000, guid: 98c13961f436c2f44866ea256bdc568d, type: 2}
+  m_HandShape: {fileID: 11400000, guid: 6e468b460205238439d994079962cc39, type: 2}
   m_RelativeOrientation:
     m_UserConditions:
     - m_HandAxis: 2
       m_AlignmentCondition: 0
       m_ReferenceDirection: 0
-      m_AngleTolerance: 89.5
+      m_AngleTolerance: 90
       m_IgnorePositionY: 0
     m_TargetConditions:
     - m_HandAxis: 0
       m_AlignmentCondition: 0
-      m_ReferenceDirection: 2
-      m_AngleTolerance: 95.8
+      m_ReferenceDirection: 1
+      m_AngleTolerance: 90
       m_IgnorePositionY: 0

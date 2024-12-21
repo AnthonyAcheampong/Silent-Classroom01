@@ -1,5 +1,3 @@
-/*
-
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.XR.Hands.Gestures;
@@ -51,6 +49,12 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
         [Tooltip("The image component that draws the highlighted gesture icon border.")]
         Image m_Highlight;
 
+        [SerializeField]
+        [Tooltip("The recognized alphabet for this gesture.")]
+        string m_RecognizedAlphabet;
+
+        public UnityEvent<string> onGestureRecognized;
+
         XRHandShape m_HandShape;
         XRHandPose m_HandPose;
         bool m_WasDetected;
@@ -79,7 +83,7 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
         }
 
         /// <summary>
-        /// The target Transform to user for target conditions in the hand shape or pose.
+        /// The target Transform to use for target conditions in the hand shape or pose.
         /// </summary>
         public Transform targetTransform
         {
@@ -205,6 +209,7 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
                 if (holdTimer > m_MinimumHoldTime)
                 {
                     m_GesturePerformed?.Invoke();
+                    onGestureRecognized?.Invoke(m_RecognizedAlphabet); // Trigger event with recognized alphabet
                     m_PerformedTriggered = true;
                     m_Background.color = m_BackgroundHighlightColor;
 
@@ -223,6 +228,3 @@ namespace UnityEngine.XR.Hands.Samples.GestureSample
         }
     }
 }
-
-
-*/
